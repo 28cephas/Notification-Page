@@ -12,11 +12,13 @@ const jacob = document.getElementById('jacob')
 const unreadJacob = document.getElementById('unread-jacob')
 
 function clear(){
-    const c = box.length - read.length
-    numberN.textContent = c
+    if(numberN.innerHTML > 0){
+        numberN.innerHTML--
+    }else{
+        numberN.innerHTML = 0
+    }
 
 }
-clear()
 
 markAll.addEventListener('click', () => {
     numberN.innerHTML = 0
@@ -32,19 +34,18 @@ markAll.addEventListener('click', () => {
 
 webber.addEventListener('click', () => {
     webber.style.backgroundColor = 'white'
-    numberN.innerHTML--
+    clear()
     unreadMark.style.opacity = '0'
 })
 
 gray.addEventListener('click', () => {
     gray.style.backgroundColor = 'white'
-    numberN.innerHTML--
     unreadGray.style.opacity = '0'
+    clear()
 })
 
 jacob.addEventListener('click', () => {
     jacob.style.backgroundColor = 'white'
-    numberN.innerHTML--
     unreadJacob.style.opacity = '0'
+    clear()
 })
-
